@@ -60,4 +60,15 @@ class AuthController extends Controller
             'token_type' => 'Bearer',
         ], 200);
     }
+// Logout (Revoca el token actual)
+public function logout(Request $request)
+{
+    $request->user()->currentAccessToken()->delete();
+
+    return response()->json([
+        'success' => true,
+        'message' => 'Sesión cerrada correctamente. Token revocado.',
+    ], 200);
+    }
 }
+
