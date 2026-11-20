@@ -10,7 +10,7 @@ class Pedido extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id', // <-- Agregado
+        'user_id', 
         'cliente',
         'postre',
         'fecha_entrega',

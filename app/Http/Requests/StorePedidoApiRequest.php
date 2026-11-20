@@ -16,11 +16,11 @@ class StorePedidoApiRequest extends FormRequest
     {
         return [
             'cliente' => ['required', 'string', 'max:255'],
-            // Regla avanzada Rule::in para validar los estados fijos de los pasteles/pedidos
-            'estado' => ['required', Rule::in(['pendiente', 'en_preparacion', 'completado', 'cancelado'])],
-            // Regla avanzada Rule::exists para asegurar que el usuario asignado existe en la BD
-            'user_id' => ['required', Rule::exists('users', 'id')],
-            'total' => ['required', 'numeric', 'min:0'],
+            'postre' => ['required', 'string', 'max:255'],
+            'fecha_entrega' => ['required', 'date'],
+            // Usamos Rule::in para validar los estados permitidos en tu negocio de repostería
+            'estado' => ['required', Rule::in(['Pendiente', 'En proceso', 'Entregado', 'pendiente', 'entregado'])],
+            'notas' => ['nullable', 'string'],
         ];
     }
 }
