@@ -20,4 +20,6 @@ Route::middleware('auth:sanctum')->group(function () {
     
     // Recurso relacionado
     Route::apiResource('pedidos.detalles', PedidoDetalleApiController::class)->scoped();
-});
+
+    Route::get('/pedidos/{id}', [PedidoController::class, 'show']);
+    });
